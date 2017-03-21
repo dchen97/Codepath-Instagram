@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3DA60DC7108B5C5113CC9B7B2BD1C720CC779107",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "10026771D7EF023E9D533CC0715A6E31464FB7F6" : 9223372036854775807,
+    "3DA60DC7108B5C5113CC9B7B2BD1C720CC779107" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2FA73CAD-414B-44B0-93A6-89DDB56268B7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "10026771D7EF023E9D533CC0715A6E31464FB7F6" : "",
+    "3DA60DC7108B5C5113CC9B7B2BD1C720CC779107" : "Codepath-Instagram\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "parsetagram",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "parsetagram\/parsetagram.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dchen97\/Codepath-Lab3-GitHub.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "10026771D7EF023E9D533CC0715A6E31464FB7F6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dchen97\/Codepath-Instagram.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3DA60DC7108B5C5113CC9B7B2BD1C720CC779107"
+    }
+  ]
+}
