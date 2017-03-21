@@ -54,12 +54,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let post = (posts?[indexPath.row])!
         
         post.image?.getDataInBackground({ (imageData: Data?, error: Error?) in
-            if error != nil {
+            if error == nil {
                 if let imageData = imageData {
                     cell.instaImageView.image = UIImage(data: imageData)
                 }
             } else {
-                print(error?.localizedDescription)
+                print("Error getting image: " + (error?.localizedDescription)!)
             }
         }, progressBlock: nil)
         
