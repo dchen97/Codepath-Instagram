@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     @IBOutlet weak var captionTextField: UITextField!
@@ -77,13 +78,28 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate,U
             return
         }
         
-        Post.postUserImage(image: self.photo!, withCaption: self.captionTextField.text!) { (result: Bool, error: Error?) in
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        Post.postUserImage(image: resize(image: self.photo!, newSize: CGSize.init(width: 152.5, height: 152.5)), withCaption: self.captionTextField.text!) { (result: Bool, error: Error?) in
             if error == nil {
+                MBProgressHUD.hide(for: self.view, animated: true)
                 print("success uploading post")
                 self.performSegue(withIdentifier: "onUploadSuccessSegue", sender: nil)
             }
         }
         
+    }
+    
+    func resize(image: UIImage, newSize: CGSize) -> UIImage {
+        let resizeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        resizeImageView.contentMode = UIViewContentMode.scaleAspectFill
+        resizeImageView.image = image
+        
+        UIGraphicsBeginImageContext(resizeImageView.frame.size)
+        resizeImageView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
     }
     
 

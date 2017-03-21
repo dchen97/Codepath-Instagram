@@ -23,6 +23,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction), for: UIControlEvents.valueChanged)
+        
+        tableView.insertSubview(refreshControl, at: 0)
+        
         let query = PFQuery(className: "Post")
         query.limit = 20
         query.order(byDescending: "createdAt")
@@ -38,6 +43,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
 
         // Do any additional setup after loading the view.
+    }
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        let query = PFQuery(className: "Post")
+        query.limit = 20
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if let posts = posts {
+                self.posts = Post.postsFromArray(objects: posts)
+                self.tableView.reloadData()
+                
+                refreshControl.endRefreshing()
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
